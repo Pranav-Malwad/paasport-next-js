@@ -1,7 +1,18 @@
 'use client'
 import React, { useState } from 'react'
 import dynamic from 'next/dynamic'
-import { Box, Typography, Button , InputLabel, Select,CardHeader, MenuItem, FormControl, Grid, Card } from '@mui/material'
+import {
+  Box,
+  Typography,
+  Button,
+  InputLabel,
+  Select,
+  CardHeader,
+  MenuItem,
+  FormControl,
+  Grid,
+  Card
+} from '@mui/material'
 import 'react-quill/dist/quill.snow.css'
 import SupplierDetailsTable from './SupplierDetailsTable'
 import { useEdit } from '@/contexts/EditContext'
@@ -11,7 +22,7 @@ const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
 const SupplierDetails = () => {
   const [supplierState, setSupplierState] = useState({
-    paymentTerms: 'Net 30',
+    paymentTerms: 'NET 30',
     supplierNotes: 'Supplier Notes Goes here.'
   })
 
@@ -33,8 +44,6 @@ const SupplierDetails = () => {
     setIsEditing(false)
   }
 
-
-
   // Function to handle state updates
   const handleStateChange = (key, value) => {
     setSupplierState(prevState => ({
@@ -52,7 +61,7 @@ const SupplierDetails = () => {
 
   return (
     <Card className='p-4' elevation={3} sx={{ borderRadius: 2 }}>
-         <Grid container alignItems='center' justifyContent='space-between' sx={{ padding: 2 }}>
+      <Grid container alignItems='center' justifyContent='space-between' sx={{ padding: 2 }}>
         <Grid item xs>
           <Typography variant='h5' gutterBottom color='primary'>
             Supplier Details
@@ -88,9 +97,14 @@ const SupplierDetails = () => {
               onChange={e => handleStateChange('paymentTerms', e.target.value)}
               disabled={!isEditing} // Enable only if editing is allowed
             >
-              <MenuItem value='Net 30'>Net 30</MenuItem>
-              <MenuItem value='Net 60'>Net 60</MenuItem>
-              <MenuItem value='Net 90'>Net 90</MenuItem>
+              <MenuItem value='NET 7'>Net 7</MenuItem>
+              <MenuItem value='NET 10'>Net 10</MenuItem>
+              <MenuItem value='NET 15'>Net 15</MenuItem>
+              <MenuItem value='NET 30'>Net 30</MenuItem>
+              <MenuItem value='NET 45'>Net 45</MenuItem>
+              <MenuItem value='NET 60'>Net 60</MenuItem>
+              <MenuItem value='NET 75'>Net 75</MenuItem>
+              <MenuItem value='NET 90'>Net 90</MenuItem>
             </Select>
           </FormControl>
         </Grid>

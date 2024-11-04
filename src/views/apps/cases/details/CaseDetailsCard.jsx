@@ -39,7 +39,7 @@ const CaseDetailsCard = () => {
   }
 
   // Handle input changes
-  const handleInputChange = (e) => {
+  const handleInputChange = e => {
     const { name, value } = e.target
     setCaseDetails(prev => ({
       ...prev,
@@ -48,17 +48,19 @@ const CaseDetailsCard = () => {
   }
 
   // Dropdown options for specific fields
-  const caseOwnerOptions = ["Justin Howard",
-    "Rob Schmidt",
-    "Ryan Costello",
-    "Lorena Acosta",
-   " Garry Adams",
-    "Christian Lemelin",
-   " Stewart Aldrich",
-   " Dymond Mccoy",
- "   Leanna Persaud",
-   " Pratik AE",
-    "Sojwal AE"]
+  const caseOwnerOptions = [
+    'Justin Howard',
+    'Rob Schmidt',
+    'Ryan Costello',
+    'Lorena Acosta',
+    ' Garry Adams',
+    'Christian Lemelin',
+    ' Stewart Aldrich',
+    ' Dymond Mccoy',
+    '   Leanna Persaud',
+    ' Pratik AE',
+    'Sojwal AE'
+  ]
   const statusOptions = ['New', 'In Progress', 'Closed']
   const caseOriginOptions = ['Phone', 'Email', 'Web']
   const priorityOptions = ['Low', 'Medium', 'High', 'Urgent']
@@ -72,8 +74,8 @@ const CaseDetailsCard = () => {
       value={caseDetails[field]}
       onChange={handleInputChange}
       fullWidth
-      variant="outlined"
-      size="small"
+      variant='outlined'
+      size='small'
     >
       {options.map(option => (
         <MenuItem key={option} value={option}>
@@ -86,23 +88,23 @@ const CaseDetailsCard = () => {
   return (
     <Card>
       <CardHeader
-        title="Case Details"
+        title='Case Details'
         action={
-          <Button variant="contained" color={isEditing ? 'success' : 'primary'} onClick={handleEditToggle}>
+          <Button variant='contained' color={isEditing ? 'success' : 'primary'} onClick={handleEditToggle}>
             {isEditing ? 'Save' : 'Edit'}
           </Button>
         }
       />
       <CardContent>
-        <div className="flex flex-col gap-3">
+        <div className='flex flex-col gap-3'>
           {Object.keys(caseDetails).map((detail, index) => (
             <div key={index}>
-              <Typography color="text.primary" className="font-medium">
+              <Typography color='text.primary' className='font-medium'>
                 <strong>{detail.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}:</strong>
               </Typography>
               {isEditing ? (
                 // Conditionally render dropdowns for certain fields
-                ['caseOwner', 'status', 'caseOrigin', 'priority', 'type', 'subject'].includes(detail) ? (
+                ['caseOwner', 'status', 'caseOrigin', 'priority', 'type', 'reason'].includes(detail) ? (
                   renderDropdown(
                     detail,
                     {
@@ -111,7 +113,7 @@ const CaseDetailsCard = () => {
                       caseOrigin: caseOriginOptions,
                       priority: priorityOptions,
                       type: typeOptions,
-                      subject: subjectOptions
+                      reason: subjectOptions
                     }[detail]
                   )
                 ) : (
@@ -120,17 +122,15 @@ const CaseDetailsCard = () => {
                     value={caseDetails[detail]}
                     onChange={handleInputChange}
                     fullWidth
-                    variant="outlined"
-                    size="small"
+                    variant='outlined'
+                    size='small'
                   />
                 )
               ) : (
-                <Typography color="text.secondary">{caseDetails[detail]}</Typography>
+                <Typography color='text.secondary'>{caseDetails[detail]}</Typography>
               )}
-  {/* Add a Divider after each detail except for the last one */}
-  {!isEditing && index < Object.keys(caseDetails).length - 1 && (
-                <Divider sx={{ my: 3 }} />
-              )}
+              {/* Add a Divider after each detail except for the last one */}
+              {!isEditing && index < Object.keys(caseDetails).length - 1 && <Divider sx={{ my: 3 }} />}
             </div>
           ))}
         </div>

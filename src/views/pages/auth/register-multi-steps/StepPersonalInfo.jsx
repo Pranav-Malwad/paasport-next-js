@@ -46,15 +46,15 @@ const StepPersonalInfo = ({ handleNext, handlePrev }) => {
           <TextField fullWidth label='Address' placeholder='1456, Liberty Street' />
         </Grid>
         <Grid item xs={12}>
-          <TextField fullWidth label='Landmark' placeholder='Nr. Wall Street' />
+          <TextField fullWidth label='State' placeholder='California' />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField fullWidth label='City' placeholder='Miami' />
         </Grid>
         <Grid item xs={12} md={6}>
           <FormControl fullWidth>
-            <InputLabel>State</InputLabel>
-            <Select label='State' defaultValue='new-york'>
+            <InputLabel>Country</InputLabel>
+            <Select label='Country' defaultValue='new-york'>
               <MenuItem value='new-york'>New York</MenuItem>
               <MenuItem value='california'>California</MenuItem>
               <MenuItem value='texas'>Texas</MenuItem>

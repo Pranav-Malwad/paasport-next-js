@@ -18,24 +18,24 @@ const CaseDetailsCard = () => {
   // State to hold all fields
   const [formData, setFormData] = useState({
     quoteId: 'Q123456',
-    sdr: 'Rob Schmidt',
+    sdr: 'Ummadi Sravani',
     accountExecutive: 'Ryan Costello',
-    projectManager: 'Lorena Acosta',
+    projectManager: 'Matt Wendel ',
     firstName: 'Jane',
     lastName: 'Doe',
     email: 'jane.doe@example.com',
-    manufacturing: 'Yes',
-    industry: 'Automotive',
+    manufacturing: 'Domestic',
+    industry: 'Aerospace and Defense',
     leadType: 'New',
-    productionType: 'CNC Machining',
-    stage: 'Qualified',
+    productionType: 'Manufacturing',
+    stage: 'Quote',
     account: 'XYZ Corp',
     contact: 'John Doe',
     nextFollowUpDate: '2024-10-15',
-    reason: 'Product Inquiry',
+    reason: 'Duplicate',
     itar: 'No',
-    leadSource: 'Web',
-    paymentTerms: 'Net 30',
+    leadSource: 'Facebook',
+    paymentTerms: 'NET 30 ',
     closedDate: '2024-11-10',
     createdDate: '2024-09-05'
   })
@@ -53,7 +53,9 @@ const CaseDetailsCard = () => {
   const [isEditing, setIsEditing] = useState(false)
 
   // Dropdown options for specific fields
-  const sdrOptions = [
+  const sdrOptions = ['Ummadi Sravani', 'Harshita KM', 'Saloni Verma', 'Shalmoli Chavan']
+  const projectManagerOptions = ['Jim ONeal', 'Julie Thomas', 'Matt Wendel ', 'Lindsey Tundidor', 'Pratik PM']
+  const accountExecutiveOptions = [
     'Justin Howard',
     'Rob Schmidt',
     'Ryan Costello',
@@ -66,13 +68,68 @@ const CaseDetailsCard = () => {
     'Pratik AE',
     'Sojwal AE'
   ]
-  const projectManagerOptions = ['Stewart Aldrich', 'Lorena Acosta']
-  const accountExecutiveOptions = ['Justin Howard', 'Rob Schmidt', 'Ryan Costello']
-  const leadTypeOptions = ['New', 'Returning', 'Referral']
-  const productionTypeOptions = ['CNC Machining', 'Injection Molding', '3D Printing', 'Sheet Metal']
-  const stageOptions = ['Qualified', 'Contacted', 'Closed']
-  const leadSourceOptions = ['Web', 'Phone', 'Email']
-  const paymentTermsOptions = ['Net 30', 'Net 60', 'COD']
+
+  const reasonOptions = [
+    'Budgetary',
+    'Capability',
+    'Direct to Production',
+    'Duplicate',
+    'Lead Time',
+    'Made Internally',
+    'No CAD',
+    'Non Responsive',
+    'Order',
+    'Price',
+    'Relationship',
+    'Student',
+    'Transferred to Another Account'
+  ]
+
+  const leadTypeOptions = ['New', 'Existing']
+  const productionTypeOptions = ['Manufacturing', 'Prototype']
+  const stageOptions = [
+    'Manual',
+    'Request for Quote',
+    'Quote',
+    'Follow Up/Review',
+    'Positive Buying Sign',
+    'Negotiation',
+    'Purchase Order',
+    'Closed Lost'
+  ]
+  const leadSourceOptions = [
+    'Facebook',
+    'Twitter',
+    'Instagram',
+    'Email',
+    'Linkedin',
+    'Referral',
+    'Trade Show',
+    'Other',
+    'Research',
+    'Google/Search Engines'
+  ]
+  const paymentTermsOptions = [
+    'NET 7',
+    'NET 10',
+    'NET 15',
+    'NET 30 ',
+    'NET 45',
+    'NET 60',
+    'NET 75',
+    'NET 90',
+    'Other (Specify in notes)'
+  ]
+  const manufacturingOptions = ['Domestic', 'International', 'Both']
+
+  const industryOptions = [
+    'Aerospace and Defense',
+    'Medical',
+    'Automative',
+    'Consumer Products',
+    'Energy',
+    'Oil and Gas'
+  ] // Replace with actual industry options
 
   const handleEdit = () => {
     setOriginalState({ ...formData }) // Store current form state
@@ -168,25 +225,25 @@ const CaseDetailsCard = () => {
               <strong>Project Manager:</strong>
             </Typography>
             {isEditing ? (
-             <Select
-             name='projectManager'
-             value={formData.projectManager}
-             onChange={e => handleInputChange('projectManager', e.target.value)}
-             fullWidth
-             variant='outlined'
-             size='small'
-             error={!!errors.projectManager}
-             helperText={errors.projectManager}
-           >
-             {projectManagerOptions.map(option => (
-               <MenuItem key={option} value={option}>
-                 {option}
-               </MenuItem>
-             ))}
-           </Select>
-         ) : (
-           <Typography color='text.secondary'>{formData.projectManager}</Typography>
-         )}
+              <Select
+                name='projectManager'
+                value={formData.projectManager}
+                onChange={e => handleInputChange('projectManager', e.target.value)}
+                fullWidth
+                variant='outlined'
+                size='small'
+                error={!!errors.projectManager}
+                helperText={errors.projectManager}
+              >
+                {projectManagerOptions.map(option => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+            ) : (
+              <Typography color='text.secondary'>{formData.projectManager}</Typography>
+            )}
           </Grid>
 
           {/* Row 4 */}
@@ -196,7 +253,7 @@ const CaseDetailsCard = () => {
               <strong>Manufacturing:</strong>
             </Typography>
             {isEditing ? (
-              <TextField
+              <Select
                 name='manufacturing'
                 value={formData.manufacturing}
                 onChange={e => handleInputChange('manufacturing', e.target.value)}
@@ -205,7 +262,13 @@ const CaseDetailsCard = () => {
                 size='small'
                 error={!!errors.manufacturing}
                 helperText={errors.manufacturing}
-              />
+              >
+                {manufacturingOptions.map(option => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
             ) : (
               <Typography color='text.secondary'>{formData.manufacturing}</Typography>
             )}
@@ -217,7 +280,7 @@ const CaseDetailsCard = () => {
               <strong>Industry:</strong>
             </Typography>
             {isEditing ? (
-              <TextField
+              <Select
                 name='industry'
                 value={formData.industry}
                 onChange={e => handleInputChange('industry', e.target.value)}
@@ -226,7 +289,13 @@ const CaseDetailsCard = () => {
                 size='small'
                 error={!!errors.industry}
                 helperText={errors.industry}
-              />
+              >
+                {industryOptions.map(option => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
             ) : (
               <Typography color='text.secondary'>{formData.industry}</Typography>
             )}
@@ -351,7 +420,7 @@ const CaseDetailsCard = () => {
               <strong>Reason:</strong>
             </Typography>
             {isEditing ? (
-              <TextField
+              <Select
                 name='reason'
                 value={formData.reason}
                 onChange={e => handleInputChange('reason', e.target.value)}
@@ -360,7 +429,13 @@ const CaseDetailsCard = () => {
                 size='small'
                 error={!!errors.reason}
                 helperText={errors.reason}
-              />
+              >
+                {reasonOptions.map(option => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
             ) : (
               <Typography color='text.secondary'>{formData.reason}</Typography>
             )}

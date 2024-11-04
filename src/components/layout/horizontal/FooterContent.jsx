@@ -21,11 +21,11 @@ const FooterContent = () => {
       className={classnames(horizontalLayoutClasses.footerContent, 'flex items-center justify-between flex-wrap gap-4')}
     >
       <p>
-        <span className='text-textSecondary'>{`© ${new Date().getFullYear()}, Made with `}</span>
+        <span className='text-textSecondary'>{` Copyright © Printform ${new Date().getFullYear()}, Made with `}</span>
         <span>{`❤️`}</span>
         <span className='text-textSecondary'>{` by `}</span>
         <Link href='https://mcloud.com/' target='_blank' className='text-primary uppercase'>
-          MCloud
+          Printform | Version 1.0.0.0
         </Link>
       </p>
       {!isBreakpointReached && (
@@ -33,9 +33,9 @@ const FooterContent = () => {
           <Link href='https://themeforest.net/licenses/standard' target='_blank' className='text-primary'>
             License
           </Link>
-          <Link href='https://themeforest.net/user/pixinvent/portfolio' target='_blank' className='text-primary'>
+          {/* <Link href='https://themeforest.net/user/pixinvent/portfolio' target='_blank' className='text-primary'>
             More Themes
-          </Link>
+          </Link> */}
           <Link
             href='https://demos.pixinvent.com/materialize-nextjs-admin-template/documentation'
             target='_blank'

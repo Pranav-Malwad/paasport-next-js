@@ -24,9 +24,9 @@ const OrderFormComponent = () => {
 
   const [orderDetails, setOrderDetails] = useState({
     orderStatus: 'Processing',
-    paymentType: 'Credit Card',
-    paymentTerms: 'Net 30',
-    supplier: 'Pavilion Manufacturing PVT.LMT',
+    paymentType: 'Purchase Order',
+    paymentTerms: 'NET 30 ',
+    supplier: 'ENL',
     fileName: 'A28769_Q102162_PFQ102162.pdf',
     customerNotes: 'Customer requested delivery within 2 weeks.',
     supplierNotes: 'Supplier confirmed material availability.',
@@ -65,7 +65,7 @@ const OrderFormComponent = () => {
 
   return (
     <Card className='p-4' elevation={3} sx={{ borderRadius: 2 }}>
-       <Grid container alignItems='center' justifyContent='space-between' sx={{ padding: 2 }}>
+      <Grid container alignItems='center' justifyContent='space-between' sx={{ padding: 2 }}>
         <Grid item xs>
           <Typography variant='h5' gutterBottom color='primary'>
             Order Details
@@ -103,7 +103,17 @@ const OrderFormComponent = () => {
                 onChange={e => handleChange('orderStatus', e.target.value)}
                 disabled={!isEditing}
               >
-                {['Processing', 'Shipped', 'Delivered', 'Cancelled'].map(status => (
+                {[
+                  'Processing',
+                  'Cancelled',
+                  'Awaiting Supplier Confirmation',
+                  'In Production',
+                  'Project Closed',
+                  'Late',
+                  'Issue Resolution',
+                  'Waiting on Final Files from Customer',
+                  'Shipped from Supplier to PF'
+                ].map(status => (
                   <MenuItem key={status} value={status}>
                     {status}
                   </MenuItem>
@@ -125,7 +135,7 @@ const OrderFormComponent = () => {
                 onChange={e => handleChange('paymentType', e.target.value)}
                 disabled={!isEditing}
               >
-                {['Credit Card', 'Bank Transfer', 'PayPal'].map(payment => (
+                {['Credit Card', 'Purchase Order'].map(payment => (
                   <MenuItem key={payment} value={payment}>
                     {payment}
                   </MenuItem>
@@ -147,7 +157,17 @@ const OrderFormComponent = () => {
                 onChange={e => handleChange('paymentTerms', e.target.value)}
                 disabled={!isEditing}
               >
-                {['Net 30', 'Net 60', 'Net 90'].map(term => (
+                {[
+                  'NET 7',
+                  'NET 10',
+                  'NET 15',
+                  'NET 30 ',
+                  'NET 45',
+                  'NET 60',
+                  'NET 75',
+                  'NET 90',
+                  'Other (Specify in notes)'
+                ].map(term => (
                   <MenuItem key={term} value={term}>
                     {term}
                   </MenuItem>
@@ -163,7 +183,31 @@ const OrderFormComponent = () => {
                 onChange={e => handleChange('supplier', e.target.value)}
                 disabled={!isEditing}
               >
-                {['Pavilion Manufacturing PVT.LMT', 'Other Supplier'].map(supplier => (
+                {[
+                  'Pavilion Manufacturing PVT.LMT',
+                  'Other Supplier',
+                  'Sharang Kapsikar',
+                  'idea supplier',
+                  'Leshine Technology Co Ltd',
+                  'Zhongshan Hord Rapidtools Ltd',
+                  'DONGGUAN BOLE RP M COLTD',
+                  'ENL',
+                  'Hkwcd',
+                  'Jason Mould',
+                  'Merit',
+                  'Enable Fab',
+                  'SHENZHEN FASTPROTO CO.,LTD',
+                  'ARRK',
+                  'Fusion',
+                  'PrintForm Supplier',
+                  'Agile Manufacturing ltd.',
+                  'Prototek',
+                  'Jabil Additive',
+                  'Wuxi Odiem Technology',
+                  'WG Sourcing',
+                  'HyMetals',
+                  'Pavilion Manufacturing'
+                ].map(supplier => (
                   <MenuItem key={supplier} value={supplier}>
                     {supplier}
                   </MenuItem>

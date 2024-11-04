@@ -33,7 +33,7 @@ const ShippingInformation = () => {
 
   const [shippingInfo, setShippingInfo] = useState({
     shipmentType: 'Direct',
-    shippingMethod: 'UPS Express Saver',
+    shippingMethod: 'Overnight Saver',
     shippingAccount: 'UP-123',
     trackingNumber: '2165498465419854984568498',
     doNotShipDirect: false,
@@ -63,16 +63,13 @@ const ShippingInformation = () => {
     setIsEditing(false)
   }
 
-
   const handleInputChange = (key, value) => {
     setShippingInfo(prevState => ({ ...prevState, [key]: value }))
   }
 
- 
-
   return (
     <Card className='p-4' elevation={3} sx={{ borderRadius: 2 }}>
-       <Grid container alignItems='center' justifyContent='space-between' sx={{ padding: 2 }}>
+      <Grid container alignItems='center' justifyContent='space-between' sx={{ padding: 2 }}>
         <Grid item xs>
           <Typography variant='h5' gutterBottom color='primary'>
             Shipping Information
@@ -104,7 +101,7 @@ const ShippingInformation = () => {
           <FormControl fullWidth variant='outlined'>
             <InputLabel>Shipment Type</InputLabel>
             <Select
-            label="Shipment Type"
+              label='Shipment Type'
               value={shippingInfo.shipmentType}
               onChange={e => handleInputChange('shipmentType', e.target.value)}
               disabled={!isEditing}
@@ -120,12 +117,23 @@ const ShippingInformation = () => {
           <FormControl fullWidth variant='outlined'>
             <InputLabel>Shipping Method</InputLabel>
             <Select
-            label="Shipping Method"
+              label='Shipping Method'
               value={shippingInfo.shippingMethod}
               onChange={e => handleInputChange('shippingMethod', e.target.value)}
               disabled={!isEditing}
             >
               <MenuItem value='UPS Express Saver'>UPS Express Saver</MenuItem>
+              <MenuItem value='First Overnight'>First Overnight</MenuItem>
+              <MenuItem value='Standard Overnight'>Standard Overnight</MenuItem>
+              <MenuItem value='Overnight Saver'>Overnight Saver</MenuItem>
+              <MenuItem value='2 Day'>2 Day</MenuItem>
+              <MenuItem value='3 Day'>3 Day</MenuItem>
+              <MenuItem value='Ground'>Ground</MenuItem>
+              <MenuItem value='Priority'> Priority</MenuItem>
+              <MenuItem value='Economy'> Economy</MenuItem>
+              <MenuItem value='Worldwide Express'>Worldwide Express</MenuItem>
+              <MenuItem value='Worldwide Expedited'>Worldwide Expedited</MenuItem>
+              <MenuItem value='Next Day Air Early AM'>Next Day Air Early AM</MenuItem>
               {/* Add more shipping methods as needed */}
             </Select>
           </FormControl>

@@ -23,10 +23,20 @@ const STAGE_OPTIONS = [
   'Purchase Order',
   'Closed Lost'
 ]
-const SUPPLIER_OPTIONS = ['Supplier 1', 'Supplier 2', 'Supplier 3'] // Replace with actual suppliers
+const SUPPLIER_OPTIONS = ['ENL', 'Sharang Kapsikar', 'Fusion'] // Replace with actual suppliers
 const SUPPLIER_TYPE_OPTIONS = ['Domestic', 'International']
 const ITAR_OPTIONS = ['Yes', 'No']
-const NET_TERMS_OPTIONS = ['NET 7', 'NET 10', 'NET 15', 'NET 30', 'NET 45', 'NET 60', 'NET 75', 'NET 90']
+const NET_TERMS_OPTIONS = [
+  'NET 7',
+  'NET 10',
+  'NET 15',
+  'NET 30',
+  'NET 45',
+  'NET 60',
+  'NET 75',
+  'NET 90',
+  'Other specify in (notes)'
+]
 const INVOICE_AMOUNT_OPTIONS = [
   '0-100$',
   '100-500$',
@@ -37,6 +47,38 @@ const INVOICE_AMOUNT_OPTIONS = [
   '50000+'
 ]
 const GP_OPTIONS = Array.from({ length: 20 }, (_, i) => `${i * 5}-${(i + 1) * 5}%`) // 0-5%, 5-10%, ..., 95-100%
+
+const PROCESS_OPTIONS = ['Injection Molding', 'CNC Machining', 'SLA', 'SLS', 'MJF', 'DLMS', 'FDM', 'Polyjet'] // Replace with actual process options
+const INDUSTRY_OPTIONS = [
+  'Aerospace and Defense',
+  'Medical',
+  'Automative',
+  'Consumer Products',
+  'Energy',
+  'Oil and Gas'
+] // Replace with actual industry options
+const LEAD_SOURCE_OPTIONS = [
+  'Facebook',
+  'Twitter',
+  'Instagram',
+  'Email',
+  'Linkedin',
+  'Referral',
+  'Trade Show',
+  'Other',
+  'Research',
+  'Google/Search Engines'
+] // Replace with actual lead source options
+const ACCOUNT_EXECUTIVE_OPTIONS = [
+  'Mike Fits',
+  'Garry Adams',
+  'Lorena Acosta',
+  'Sojwal AE',
+  'Pratik AE',
+  'Ryan Costello',
+  'Justin Howard'
+] // Replace with actual account executive options
+const PROJECT_MANAGER_OPTIONS = ['Jim ONeal', 'Julie Thomas', 'Matt Wendel', 'Pratik PM', 'Lindsey Tundidor'] // Replace with actual project manager options
 
 const TableFilters = ({ setData, productData, currentPage }) => {
   // States
@@ -384,7 +426,7 @@ const TableFilters = ({ setData, productData, currentPage }) => {
               </div>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          {/* <Grid item xs={12} sm={4}>
             <TextField
               label='Process'
               variant='outlined'
@@ -452,7 +494,134 @@ const TableFilters = ({ setData, productData, currentPage }) => {
                 )
               }}
             />
+          </Grid> */}
+
+          {/* New Select filters */}
+          <Grid item xs={12} sm={4}>
+            <FormControl fullWidth>
+              <InputLabel id='process-select-label'>Process</InputLabel>
+              <div className='flex items-center justify-between gap-4'>
+                <Select
+                  labelId='process-select-label'
+                  id='process-select'
+                  className='w-full'
+                  name='process'
+                  value={filters.process}
+                  onChange={handleChange}
+                  label='Process'
+                >
+                  <MenuItem value=''>Select Process</MenuItem>
+                  {PROCESS_OPTIONS.map(process => (
+                    <MenuItem key={process} value={process}>
+                      {process}
+                    </MenuItem>
+                  ))}
+                </Select>
+                {filters.process && <IconButton onClick={() => clearFilter('process')}>x</IconButton>}
+              </div>
+            </FormControl>
           </Grid>
+
+          <Grid item xs={12} sm={4}>
+            <FormControl fullWidth>
+              <InputLabel id='industry-select-label'>Industry</InputLabel>
+              <div className='flex items-center justify-between gap-4'>
+                <Select
+                  labelId='industry-select-label'
+                  id='industry-select'
+                  name='industry'
+                  className='w-full'
+                  value={filters.industry}
+                  onChange={handleChange}
+                  label='Industry'
+                >
+                  <MenuItem value=''>Select Industry</MenuItem>
+                  {INDUSTRY_OPTIONS.map(industry => (
+                    <MenuItem key={industry} value={industry}>
+                      {industry}
+                    </MenuItem>
+                  ))}
+                </Select>
+                {filters.industry && <IconButton onClick={() => clearFilter('industry')}>x</IconButton>}
+              </div>
+            </FormControl>
+          </Grid>
+
+          <Grid item xs={12} sm={4}>
+            <FormControl fullWidth>
+              <InputLabel id='leadSource-select-label'>Lead Source</InputLabel>
+              <div className='flex items-center justify-between gap-4'>
+                <Select
+                  labelId='leadSource-select-label'
+                  id='leadSource-select'
+                  className='w-full'
+                  name='leadSource'
+                  value={filters.leadSource}
+                  onChange={handleChange}
+                  label='Lead Source'
+                >
+                  <MenuItem value=''>Select Lead Source</MenuItem>
+                  {LEAD_SOURCE_OPTIONS.map(source => (
+                    <MenuItem key={source} value={source}>
+                      {source}
+                    </MenuItem>
+                  ))}
+                </Select>
+                {filters.leadSource && <IconButton onClick={() => clearFilter('leadSource')}>x</IconButton>}
+              </div>
+            </FormControl>
+          </Grid>
+
+          <Grid item xs={12} sm={4}>
+            <FormControl fullWidth>
+              <InputLabel id='accountExecutive-select-label'>Account Executive</InputLabel>
+              <div className='flex items-center justify-between gap-4'>
+                <Select
+                  labelId='accountExecutive-select-label'
+                  id='accountExecutive-select'
+                  className='w-full'
+                  name='accountExecutive'
+                  value={filters.accountExecutive}
+                  onChange={handleChange}
+                  label='Account Executive'
+                >
+                  <MenuItem value=''>Select Account Executive</MenuItem>
+                  {ACCOUNT_EXECUTIVE_OPTIONS.map(executive => (
+                    <MenuItem key={executive} value={executive}>
+                      {executive}
+                    </MenuItem>
+                  ))}
+                </Select>
+                {filters.accountExecutive && <IconButton onClick={() => clearFilter('accountExecutive')}>x</IconButton>}
+              </div>
+            </FormControl>
+          </Grid>
+
+          <Grid item xs={12} sm={4}>
+            <FormControl fullWidth>
+              <InputLabel id='projectManager-select-label'>Project Manager</InputLabel>
+              <div className='flex items-center justify-between gap-4'>
+                <Select
+                  labelId='projectManager-select-label'
+                  className='w-full'
+                  id='projectManager-select'
+                  name='projectManager'
+                  value={filters.projectManager}
+                  onChange={handleChange}
+                  label='Project Manager'
+                >
+                  <MenuItem value=''>Select Project Manager</MenuItem>
+                  {PROJECT_MANAGER_OPTIONS.map(manager => (
+                    <MenuItem key={manager} value={manager}>
+                      {manager}
+                    </MenuItem>
+                  ))}
+                </Select>
+                {filters.projectManager && <IconButton onClick={() => clearFilter('projectManager')}>x</IconButton>}
+              </div>
+            </FormControl>
+          </Grid>
+
           <Grid item xs={12} sm={4}>
             <TextField
               label='Start Date'

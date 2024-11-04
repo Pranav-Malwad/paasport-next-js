@@ -36,14 +36,13 @@ const OrderDetailHeader = ({ leadData, order }) => {
       <div className='flex flex-col items-start gap-1'>
         <div className='flex items-center gap-2'>
           <Typography variant='h5'>{`Lead #${order}`}</Typography>
-          
         </div>
         <Typography>{`${new Date(leadData?.date ?? '').toDateString()}, ${leadData?.time} (ET)`}</Typography>
       </div>
       <div>
-        <Button variant='contained' size='small' className='ml-4 max-sm:is-full'>
+        {/* <Button variant='contained' size='small' className='ml-4 max-sm:is-full'>
           New
-        </Button>
+        </Button> */}
         <Button variant='contained' size='small' className='ml-4 max-sm:is-full'>
           Import
         </Button>

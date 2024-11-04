@@ -16,7 +16,6 @@ import {
 } from '@mui/material'
 
 const DescriptionInformation = () => {
-
   // State to manage form fields
   const [formData, setFormData] = useState({
     selectedVendor: 'My UPS',
@@ -25,7 +24,7 @@ const DescriptionInformation = () => {
     workOrderCost: '$196,350.00',
     isInvoiced: false,
     isPaid: false,
-    shippingCharges: '$0.00',
+    shippingCharges: '$0.00'
   })
 
   const [isEditing, setIsEditing] = useState(false)
@@ -53,7 +52,7 @@ const DescriptionInformation = () => {
 
   return (
     <Card className='p-4' elevation={3} sx={{ borderRadius: 2 }}>
-        <Grid container alignItems='center' justifyContent='space-between' sx={{ padding: 2 }}>
+      <Grid container alignItems='center' justifyContent='space-between' sx={{ padding: 2 }}>
         <Grid item xs>
           <Typography variant='h5' gutterBottom color='primary'>
             Description Information
@@ -91,6 +90,8 @@ const DescriptionInformation = () => {
               disabled={!isEditing}
             >
               <MenuItem value='My UPS'>My UPS</MenuItem>
+              <MenuItem value='My FEDEX'>My FEDEX</MenuItem>
+              <MenuItem value='prepay using printform'>Prepay using printform</MenuItem>
               {/* Add more options if needed */}
             </Select>
           </FormControl>

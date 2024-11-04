@@ -8,8 +8,8 @@ const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
 const SupplierDetails = () => {
   const [formState, setFormState] = useState({
-    supplier: 'Global Supplies',
-    paymentTerms: 'Net 30',
+    supplier: 'Sharang Kapsikar',
+    paymentTerms: 'NET 30',
     supplierNotes: ''
   })
 
@@ -19,8 +19,41 @@ const SupplierDetails = () => {
   const [originalState, setOriginalState] = useState({ ...formState })
 
   // Sample data for suppliers and payment terms
-  const suppliersList = ['ABC Supplies', 'XYZ Distributors', 'Global Supplies', 'Supplier One']
-  const paymentTermsList = ['Net 30', 'Net 60', 'Net 90']
+  const suppliersList = [
+    'Sharang Kapsikar',
+    'idea supplier',
+    'Leshine Technology Co Ltd',
+    'Zhongshan Hord Rapidtools Ltd',
+    'DONGGUAN BOLE RP M COLTD',
+    'ENL',
+    'Hkwcd',
+    'Jason Mould',
+    'Merit',
+    'Enable Fab',
+    'SHENZHEN FASTPROTO CO.,LTD',
+    'ARRK',
+    'Fusion',
+    'PrintForm Supplier',
+    'Agile Manufacturing ltd.',
+    'Prototek',
+    'Jabil Additive',
+    'Wuxi Odiem Technology',
+    'WG Sourcing',
+    'HyMetals',
+    'Pavilion Manufacturing'
+  ]
+
+  const paymentTermsList = [
+    'NET 7',
+    'NET 10',
+    'NET 15',
+    'NET 30',
+    'NET 45',
+    'NET 60',
+    'NET 75',
+    'NET 90',
+    'Other specify in (notes)'
+  ]
 
   // Function to handle form field changes
   const handleFieldChange = (field, value) => {
@@ -136,8 +169,6 @@ const SupplierDetails = () => {
             />
           )}
         </Grid>
-
-       
       </Grid>
     </Card>
   )

@@ -58,6 +58,14 @@ const NewTask = () => {
               <MenuItem value='Justin Howard'>Justin Howard</MenuItem>
               <MenuItem value='Rob Schmidt'>Rob Schmidt</MenuItem>
               <MenuItem value='Ryan Costello'>Ryan Costello</MenuItem>
+              <MenuItem value='Lorena Acosta'>Lorena Acosta</MenuItem>
+              <MenuItem value='Garry Adams'>Garry Adams</MenuItem>
+              <MenuItem value='Christian Lemelin'>Christian Lemelin</MenuItem>
+              <MenuItem value='Stewart Aldrich'>Stewart Aldrich</MenuItem>
+              <MenuItem value='Dymond Mccoy'>Dymond Mccoy</MenuItem>
+              <MenuItem value='Leanna Persaud'>Leanna Persaud</MenuItem>
+              <MenuItem value='Pratik AE'>Pratik AE</MenuItem>
+              <MenuItem value='Sojwal AE'>Sojwal AE</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -85,6 +93,16 @@ const NewTask = () => {
               <MenuItem value='Meeting'>Meeting</MenuItem>
               <MenuItem value='Call'>Call</MenuItem>
               <MenuItem value='Follow-up'>Follow-up</MenuItem>
+              <MenuItem value='Send Quote'>Send Quote</MenuItem>
+              <MenuItem value='Send Invoice'>Send Invoice</MenuItem>
+              <MenuItem value='Quote Follow up'>Quote Follow up</MenuItem>
+              <MenuItem value='Old Project Follow up'>Old Project Follow up</MenuItem>
+              <MenuItem value='Prospect (warm)'>Prospect (warm)</MenuItem>
+              <MenuItem value='Prospect (cold)'>Prospect (cold)</MenuItem>
+              <MenuItem value='Lost Quote Check in'>Lost Quote Check in</MenuItem>
+              <MenuItem value='Email'>Email</MenuItem>
+              <MenuItem value='Voicemail'>Voicemail</MenuItem>
+              <MenuItem value='Other'>Other</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -102,6 +120,9 @@ const NewTask = () => {
               <MenuItem value='Not Started'>Not Started</MenuItem>
               <MenuItem value='In Progress'>In Progress</MenuItem>
               <MenuItem value='Completed'>Completed</MenuItem>
+              <MenuItem value='Waiting for Someone else'>Waiting for Someone Else</MenuItem>
+              <MenuItem value='Deffered'>Deffered</MenuItem>
+              <MenuItem value='Scheduled'>Scheduled</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -138,12 +159,12 @@ const NewTask = () => {
         </Grid>
         {/* Comment */}
         <Grid item xs={12}>
-        <InputLabel id='comments'>Comment</InputLabel>
+          <InputLabel id='comments'>Comment</InputLabel>
           <div style={{ marginTop: '16px 0' }}>
             <ReactQuill
               value={formData.comment}
               onChange={handleCommentChange}
-              theme={'snow' } // Use 'snow' theme for editing and 'bubble' for read-only
+              theme={'snow'} // Use 'snow' theme for editing and 'bubble' for read-only
             />
           </div>
         </Grid>

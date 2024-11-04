@@ -18,17 +18,17 @@ import { useEdit } from '@/contexts/EditContext'
 const CaseDetailsCard = () => {
   // State to hold all fields
   const [formData, setFormData] = useState({
-    sdr: 'Leanna Persaud',
+    sdr: 'Harshita KM',
     accountExecutive: 'Ryan Costello',
-    projectManager: 'Lorena Acosta',
-    productionType: 'CNC Machining',
-    stage: 'Qualified',
+    projectManager: 'Jim ONeal',
+    productionType: 'Manufacturing',
+    stage: 'Manual',
     contact: 'John Doe',
     nextFollowUpDate: '2024-10-15',
     reason: 'Product Inquiry',
     itar: 'No',
-    leadSource: 'Web',
-    paymentTerms: 'Net 30',
+    leadSource: 'Facebook',
+    paymentTerms: 'NET 30 ',
     closedDate: '2024-11-10',
     createdDate: '2024-09-05'
   })
@@ -62,9 +62,9 @@ const CaseDetailsCard = () => {
     setIsEditing(false)
   }
 
-
   // Dropdown options for specific fields
-  const sdrOptions = [
+  const sdrOptions = ['Ummadi Sravani', 'Harshita KM', 'Saloni Verma', 'Shalmoli Chavan']
+  const accountExecutiveOptions = [
     'Justin Howard',
     'Rob Schmidt',
     'Ryan Costello',
@@ -77,17 +77,46 @@ const CaseDetailsCard = () => {
     'Pratik AE',
     'Sojwal AE'
   ]
-  const accountExecutiveOptions = ['Justin Howard', 'Rob Schmidt', 'Ryan Costello']
-  const projectManagerOptions = ['Stewart Aldrich', 'Lorena Acosta']
-  const leadTypeOptions = ['New', 'Returning', 'Referral']
-  const productionTypeOptions = ['CNC Machining', 'Injection Molding', '3D Printing', 'Sheet Metal']
-  const stageOptions = ['Qualified', 'Contacted', 'Closed']
-  const leadSourceOptions = ['Web', 'Phone', 'Email']
-  const paymentTermsOptions = ['Net 30', 'Net 60', 'COD']
+  const projectManagerOptions = ['Jim ONeal', 'Julie Thomas', 'Matt Wendel ', 'Lindsey Tundidor', 'Pratik PM']
+  const leadTypeOptions = ['New', 'Existing']
+  const productionTypeOptions = ['Manufacturing', 'Prototype']
+  const stageOptions = [
+    'Manual',
+    'Request for Quote',
+    'Quote',
+    'Follow Up/Review',
+    'Positive Buying Sign',
+    'Negotiation',
+    'Purchase Order',
+    'Closed Lost'
+  ]
+  const leadSourceOptions = [
+    'Facebook',
+    'Twitter',
+    'Instagram',
+    'Email',
+    'Linkedin',
+    'Referral',
+    'Trade Show',
+    'Other',
+    'Research',
+    'Google/Search Engines'
+  ]
+  const paymentTermsOptions = [
+    'NET 7',
+    'NET 10',
+    'NET 15',
+    'NET 30 ',
+    'NET 45',
+    'NET 60',
+    'NET 75',
+    'NET 90',
+    'Other (Specify in notes)'
+  ]
 
   return (
     <Card>
-       <Grid container alignItems='center' justifyContent='space-between'>
+      <Grid container alignItems='center' justifyContent='space-between'>
         <CardHeader title='Order Details' />
         <Grid item>
           {isEditing ? (

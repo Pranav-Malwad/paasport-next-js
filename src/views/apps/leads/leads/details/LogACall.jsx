@@ -13,11 +13,10 @@ const useEdit = () => {
 const LogACall = () => {
   const { isEditing, setIsEditing } = useEdit()
   const [formData, setFormData] = useState({
-   
     subject: '',
-    comment: '', 
-    name: "",
-    relatedTo:""
+    comment: '',
+    name: '',
+    relatedTo: ''
   })
 
   // Handle form data changes
@@ -30,7 +29,6 @@ const LogACall = () => {
     setFormData({ ...formData, comment: value })
   }
 
-
   const handleSave = () => {
     // Save formData logic
     setIsEditing(false)
@@ -41,7 +39,6 @@ const LogACall = () => {
       {/* Assigned To */}
 
       <Grid container spacing={2}>
-        
         {/* Related To (Non-editable) */}
         <Grid item xs={6}>
           <TextField
@@ -63,33 +60,27 @@ const LogACall = () => {
               value={formData.subject}
               onChange={handleChange('subject')}
             >
-              <MenuItem value='Meeting'>Meeting</MenuItem>
+              <MenuItem value='Email'>Email</MenuItem>
               <MenuItem value='Call'>Call</MenuItem>
-              <MenuItem value='Follow-up'>Follow-up</MenuItem>
+              <MenuItem value='Send Letter'>Send Letter</MenuItem>
+              <MenuItem value='Send Quote'>Send Quote</MenuItem>
+              <MenuItem value='Other '>Other</MenuItem>
             </Select>
           </FormControl>
         </Grid>
-       
-         {/* Name (Non-editable) */}
-         <Grid item xs={6}>
-          <TextField
-            fullWidth
-            margin='normal'
-            label='Name'
-            value='Mayuri'
-            InputProps={{ readOnly: true }}
-          />
+
+        {/* Name (Non-editable) */}
+        <Grid item xs={6}>
+          <TextField fullWidth margin='normal' label='Name' value='Mayuri' InputProps={{ readOnly: true }} />
         </Grid>
         {/* Comment */}
         <Grid item xs={6}>
-        <InputLabel id='comment'>Comment</InputLabel>
-        
+          <InputLabel id='comment'>Comment</InputLabel>
+
           <div style={{ marginTop: '16px 0' }}>
-          <ReactQuill value={formData.comment} onChange={handleCommentChange} theme='snow' />
+            <ReactQuill value={formData.comment} onChange={handleCommentChange} theme='snow' />
           </div>
         </Grid>
-       
-
 
         <Grid item xs={12} className='flex justify-end'>
           <Button variant='contained' color='primary' onClick={handleSave}>

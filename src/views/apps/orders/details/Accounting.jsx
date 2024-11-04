@@ -489,6 +489,7 @@ const Accounting = () => {
         </Grid>
 
         {/* PO Audit Dropdown */}
+
         <Grid item xs={12} sm={6}>
           <FormControl fullWidth variant='outlined' margin='normal'>
             <InputLabel id='po-audit-label'>PO Audit</InputLabel>
@@ -501,8 +502,11 @@ const Accounting = () => {
               readOnly={!isEditing}
               disabled={!isEditing} // Disable dropdown when not editing
             >
-              <MenuItem value='Audit 1'>Audit 1</MenuItem>
-              <MenuItem value='Audit 2'>Audit 2</MenuItem>
+              <MenuItem value='PO copy not available'>PO copy not available</MenuItem>
+              <MenuItem value='The PO amount does not match with MCloud'>
+                The PO amount does not match with MCloud
+              </MenuItem>
+              <MenuItem value='Audit completed'>Audit completed</MenuItem>
               {/* Add more options as needed */}
             </Select>
           </FormControl>
@@ -521,8 +525,10 @@ const Accounting = () => {
               readOnly={!isEditing}
               disabled={!isEditing}
             >
-              <MenuItem value='Stage 1'>Stage 1</MenuItem>
-              <MenuItem value='Stage 2'>Stage 2</MenuItem>
+              <MenuItem value='Not invoiced'>Not invoiced</MenuItem>
+              <MenuItem value='Part invoiced'>Part invoiced</MenuItem>
+              <MenuItem value='Waiting for the shipping bill'>Waiting for the shipping bill</MenuItem>
+              <MenuItem value='Complete invoiced'>Complete invoiced</MenuItem>
               {/* Add more options as needed */}
             </Select>
           </FormControl>
@@ -597,17 +603,26 @@ const Accounting = () => {
 
         {/* WO Audit */}
         <Grid item xs={12} sm={6}>
-          <TextField
-            fullWidth
-            label='WO Audit'
-            name='woAudit'
-            value={fields.woAudit}
-            onChange={handleChange}
-            margin='normal'
-            InputProps={{ readOnly: !isEditing }}
-          />
+          <FormControl fullWidth variant='outlined' margin='normal'>
+            <InputLabel id='wo-audit-label'>WO Audit</InputLabel>
+            <Select
+              labelId='wo-audit-label'
+              name='woAudit'
+              value={fields.woAudit}
+              onChange={handleChange}
+              label='WO Audit'
+              readOnly={!isEditing}
+              disabled={!isEditing}
+            >
+              <MenuItem value='WO copy not available'>WO copy not available</MenuItem>
+              <MenuItem value='The WO amount does not match with MCloud'>
+                The WO amount does not match with MCloud
+              </MenuItem>
+              <MenuItem value='Audit completed'>Audit completed</MenuItem>
+              {/* Add more options as needed */}
+            </Select>
+          </FormControl>
         </Grid>
-
 
         {/* Audit Notes */}
         <Grid item xs={12}>
@@ -652,8 +667,6 @@ const Accounting = () => {
             />
           )}
         </Grid>
-
-        
       </Grid>
     </Card>
   )

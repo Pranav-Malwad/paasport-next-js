@@ -94,8 +94,10 @@ const LeadDetails = () => {
               labelId='sdr-label'
               disabled={!isEditing}
             >
-              <MenuItem value='John Doe'>John Doe</MenuItem>
-              <MenuItem value='Jane Smith'>Jane Smith</MenuItem>
+              <MenuItem value='Ummadi Sravani'>Ummadi Sravani</MenuItem>
+              <MenuItem value='Harshita KM'>Harshita KM</MenuItem>
+              <MenuItem value='Saloni Verma'>Saloni Verma</MenuItem>
+              <MenuItem value='Shalmoli Chavan'>Shalmoli Chavan</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -198,13 +200,16 @@ const LeadDetails = () => {
               label='Lead Source'
               labelId='leadSource-label'
             >
-              <MenuItem value='Aerospace and Defense'>Aerospace and Defense</MenuItem>
-              <MenuItem value='Automotive'>Automotive</MenuItem>
-              <MenuItem value='Consumer Products'>Consumer Products</MenuItem>
-              <MenuItem value='Energy'>Energy</MenuItem>
-              <MenuItem value='Medical'>Medical</MenuItem>
-              <MenuItem value='Oil and Gas'>Oil and Gas</MenuItem>
+              <MenuItem value='Facebook'>Facebook</MenuItem>
+              <MenuItem value='Twitter'>Twitter</MenuItem>
+              <MenuItem value='Instagram'>Instagram</MenuItem>
+              <MenuItem value='Email'>Email</MenuItem>
+              <MenuItem value='Linkedin'>Linkedin</MenuItem>
+              <MenuItem value='Referral'>Referral</MenuItem>
+              <MenuItem value='Trade Show'>Trade Show</MenuItem>
               <MenuItem value='Other'>Other</MenuItem>
+              <MenuItem value='Research'>Research</MenuItem>
+              <MenuItem value='Google/Search Engines'>Google/Search Engines</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -229,12 +234,21 @@ const LeadDetails = () => {
               label='Lead Status'
               labelId='lead_status-label'
             >
-              <MenuItem value='CNC Machining'>CNC Machining</MenuItem>
-              <MenuItem value='Injection Molding'>Injection Molding</MenuItem>
-              <MenuItem value='Cast Urethane'>Cast Urethane</MenuItem>
-              <MenuItem value='3D Printing'>3D Printing</MenuItem>
-              <MenuItem value='Sheet Metal'>Sheet Metal</MenuItem>
-              <MenuItem value='Other'>Other</MenuItem>
+              <MenuItem value='New'>New</MenuItem>
+              <MenuItem value='Assigned'>Assigned</MenuItem>
+              <MenuItem value='Adopted'>Adopted</MenuItem>
+              <MenuItem value='Contacted'>Contacted</MenuItem>
+              <MenuItem value='Contacted - Phone Unreachable'>Contacted - Phone Unreachable</MenuItem>
+              <MenuItem value='Contacted - Email Unreachable'>Contacted - Email Unreachable</MenuItem>
+              <MenuItem value='Qualified'>Qualified</MenuItem>
+              <MenuItem value='Information Sent'>Information Sent</MenuItem>
+              <MenuItem value='Follow-up'>Follow-up</MenuItem>
+              <MenuItem value='Demo Scheduled'>Demo Scheduled</MenuItem>
+              <MenuItem value='Unqualified'>Unqualified</MenuItem>
+              <MenuItem value='Inactive'>Inactive</MenuItem>
+              <MenuItem value='Reassigned'>Reassigned</MenuItem>
+              <MenuItem value='Closed - Won'>Closed - Won</MenuItem>
+              <MenuItem value='Closed - Lost'>Closed - Lost</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -271,12 +285,11 @@ const LeadDetails = () => {
               label='Customer Status'
               labelId='customer_status-label'
             >
-              <MenuItem value='CNC Machining'>CNC Machining</MenuItem>
-              <MenuItem value='Injection Molding'>Injection Molding</MenuItem>
-              <MenuItem value='Cast Urethane'>Cast Urethane</MenuItem>
-              <MenuItem value='3D Printing'>3D Printing</MenuItem>
-              <MenuItem value='Sheet Metal'>Sheet Metal</MenuItem>
-              <MenuItem value='Other'>Other</MenuItem>
+              <MenuItem value='Not Registered'>Not Registered</MenuItem>
+              <MenuItem value='Registered'>Registered</MenuItem>
+              <MenuItem value='Quoted'>Quoted</MenuItem>
+              <MenuItem value='Purchased'>Purchased</MenuItem>
+              <MenuItem value='Registration Link Sent'>Registration Link Sent</MenuItem>
             </Select>
           </FormControl>
         </Grid>
