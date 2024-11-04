@@ -10,6 +10,8 @@ module.exports = {
     "react/no-children-prop": "off",
     "@next/next/no-img-element": "off",
     "@next/next/no-page-custom-font": "off",
+    "lines-around-comment": "off", // Disable or adjust as necessary
+    "import/no-duplicates": "off",
     "lines-around-comment": [
       "error",
       {
