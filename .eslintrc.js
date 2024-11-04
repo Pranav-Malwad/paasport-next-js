@@ -74,7 +74,7 @@ module.exports = {
     "import/newline-after-import": [
       "error",
       {
-        "count": 2
+        "count": 0
       }
     ],
     "import/order": [
