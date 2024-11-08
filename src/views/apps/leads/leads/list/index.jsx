@@ -161,7 +161,7 @@ const OrderList = ({ leadData }) => {
       )
     },
     {
-      label: 'Automative',
+      label: 'Automotive',
       content: (
         <Suspense fallback={<Shimmer variant="rectangular" width="100%" height={300} />}>
           <LeadsListTable leadData={leadData} />

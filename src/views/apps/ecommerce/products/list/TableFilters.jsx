@@ -52,7 +52,7 @@ const PROCESS_OPTIONS = ['Injection Molding', 'CNC Machining', 'SLA', 'SLS', 'MJ
 const INDUSTRY_OPTIONS = [
   'Aerospace and Defense',
   'Medical',
-  'Automative',
+  'Automotive',
   'Consumer Products',
   'Energy',
   'Oil and Gas'

@@ -125,7 +125,7 @@ const CaseDetailsCard = () => {
   const industryOptions = [
     'Aerospace and Defense',
     'Medical',
-    'Automative',
+    'Automotive',
     'Consumer Products',
     'Energy',
     'Oil and Gas'
