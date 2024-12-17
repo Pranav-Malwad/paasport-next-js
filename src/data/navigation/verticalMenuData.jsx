@@ -129,6 +129,21 @@ const verticalMenuData = dictionary => [
             ]
           },
           {
+            label: dictionary['navigation'].contacts,
+            children: [
+              {
+                label: dictionary['navigation'].list,
+                href: '/apps/contacts/list'
+              },
+              {
+                label: dictionary['navigation'].details,
+                href: '/apps/contacts/details/879861',
+                exactMatch: false,
+                activeUrl: '/apps/contacts/details'
+              }
+            ]
+          },
+          {
             label: dictionary['navigation'].manageReviews,
             href: '/apps/ecommerce/manage-reviews'
           },

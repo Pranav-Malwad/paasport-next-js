@@ -159,23 +159,13 @@ const VerticalMenu = ({ dictionary, scrollMenu }) => {
             {dictionary['navigation'].quotes}
           </MenuItem>
 
-          {/* <MenuItem href={`/${locale}/apps/quotes/details/${quoteId}`} icon={<i className='ri-file-list-line' />}>
-            {dictionary['navigation'].details}
-          </MenuItem> */}
-
           <MenuItem href={`/${locale}/apps/orders`} icon={<i className='ri-shopping-cart-line' />}>
             {dictionary['navigation'].orders}
           </MenuItem>
-          <SubMenu label={dictionary['navigation'].customers} icon={<i className='ri-contacts-line' />}>
-            <MenuItem href={`/${locale}/apps/ecommerce/customers/list`}>{dictionary['navigation'].list}</MenuItem>
-            <MenuItem
-              href={`/${locale}/apps/ecommerce/customers/details/879861`}
-              exactMatch={false}
-              activeUrl='/apps/ecommerce/customers/details'
-            >
-              {dictionary['navigation'].details}
-            </MenuItem>
-          </SubMenu>
+
+          <MenuItem href={`/${locale}/apps/contacts`} icon={<i className='ri-contacts-line' />}>
+            {dictionary['navigation'].contacts}
+          </MenuItem>
 
           <MenuItem href={`/${locale}/apps/accounts`} icon={<i className='ri-user-line' />}>
             {dictionary['navigation'].accounts}
@@ -184,16 +174,9 @@ const VerticalMenu = ({ dictionary, scrollMenu }) => {
             {dictionary['navigation'].cases}
           </MenuItem>
 
-          <SubMenu label={dictionary['navigation'].tasks_managment} icon={<i className='ri-bill-line' />}>
-            <MenuItem href={`/${locale}/apps/tasks/open_tasks`}>{dictionary['navigation'].open_tasks}</MenuItem>
-            <MenuItem href={`/${locale}/apps/tasks/completed_tasks`}>
-              {dictionary['navigation'].completed_tasks}
-            </MenuItem>
-          </SubMenu>
-
-          {/* <MenuItem href={`/${locale}/apps/tasks`} icon={<i className='ri-task-line' />}>
+          <MenuItem href={`/${locale}/apps/tasks`} icon={<i className='ri-bill-line' />}>
             {dictionary['navigation'].tasks}
-          </MenuItem> */}
+          </MenuItem>
 
           <SubMenu label={dictionary['navigation'].leads_managment} icon={<i className='ri-bill-line' />}>
             <MenuItem href={`/${locale}/apps/leads/leads`}>{dictionary['navigation'].leads}</MenuItem>
